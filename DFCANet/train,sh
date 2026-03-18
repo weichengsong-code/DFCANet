@@ -1,0 +1,14 @@
+EXPID=$(date +"%Y%m%d_%H%M%S")
+
+
+NUM_GPU=1
+python train.py \
+--config '/bvg/code/MultiModal-DeepFake/configs/train.yaml' \
+--output_dir '/bvg/code/MultiModal-DeepFake/results' \
+--checkpoint '/bvg/code/MultiModal-DeepFake/ALBEF_4M.pth' \
+--launcher pytorch \
+--rank 0 \
+--log_num ${EXPID} \
+--token_momentum \
+--world_size $NUM_GPU \
+--model_save_epoch 100 \
